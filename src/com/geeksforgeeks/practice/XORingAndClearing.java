@@ -40,7 +40,5 @@ class XORingAndClearingSolver {
 
     static void xor1ToN(int[] arr, int n) {
         for (int i = 0; i < n; i++) arr[i] = arr[i] ^ i;
-
-
     }
 }
