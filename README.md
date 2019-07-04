@@ -1,1 +1,1 @@
-# Geeks-For-Geeks-Practice
+# Competitive-Coding-Practice
