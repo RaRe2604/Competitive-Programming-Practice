@@ -22,7 +22,9 @@ public class Duration {
             int EM = Integer.parseInt(line[3]);
 
             java.time.Duration duration = java.time.Duration.between(LocalTime.of(SH, SM, 0), LocalTime.of(EH, EM, 0));
-            System.out.println(duration.toHours() + " " + (duration.toMinutes() - (duration.toHours() * 60)));
+            long hours = duration.toHours();
+            long minutes = duration.toMinutes();
+            System.out.println(hours + " " + (minutes - (hours * 60)));
         }
     }
 }
