@@ -13,6 +13,7 @@ import java.time.LocalTime;
 public class Duration {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        StringBuffer result = new StringBuffer();
         int testcases = Integer.parseInt(reader.readLine().trim());
         while (testcases-- > 0) {
             String[] line = reader.readLine().trim().split(" ");
@@ -24,7 +25,8 @@ public class Duration {
             java.time.Duration duration = java.time.Duration.between(LocalTime.of(SH, SM, 0), LocalTime.of(EH, EM, 0));
             long hours = duration.toHours();
             long minutes = duration.toMinutes();
-            System.out.println(hours + " " + (minutes - (hours * 60)));
+            result.append(hours + " " + (minutes - (hours * 60))).append("\n");
         }
+        System.out.println(result);
     }
 }
