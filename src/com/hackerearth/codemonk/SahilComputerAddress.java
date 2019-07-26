@@ -17,7 +17,6 @@ public class SahilComputerAddress {
         String[] parts = ipAddress.split("\\.");
         if (parts.length == 4) {
             for (String value : parts) {
-                System.out.println(value);
                 if (value.length() < 1 || value.length() > 3 || Integer.parseInt(value) < 0 || Integer.parseInt(value) > 255) {
                     isValid = false;
                     break;
