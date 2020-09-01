@@ -17,7 +17,6 @@ public class RemoveNthNode {
         print(head1);
         head1 = removeNthNode.removeNthFromEnd(head1, 5);
         print(head1);
-
     }
 
     public static void print(ListNode start) {
