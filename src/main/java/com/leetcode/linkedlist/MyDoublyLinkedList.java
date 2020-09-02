@@ -2,11 +2,11 @@ package com.leetcode.linkedlist;
 
 /**
  * User: Rahul Reddy
- * Date: 8/31/2020
- * Time: 12:07 PM
+ * Date: 9/02/2020
+ * Time: 09:45 AM
  */
 
-public class MyLinkedList {
+public class MyDoublyLinkedList {
 
     /**
      * Initialize your data structure here.
@@ -14,8 +14,7 @@ public class MyLinkedList {
 
     Node head;
 
-    public MyLinkedList() {
-//        head = new Node();
+    public MyDoublyLinkedList() {
     }
 
     /**
@@ -46,6 +45,7 @@ public class MyLinkedList {
             Node start = head;
             head = new Node(val);
             head.next = start;
+            start.prev = head;
         }
     }
 
@@ -59,6 +59,7 @@ public class MyLinkedList {
         }
         Node tailNode = new Node(val);
         start.next = tailNode;
+        tailNode.prev = start;
     }
 
     /**
@@ -67,7 +68,7 @@ public class MyLinkedList {
     public void addAtIndex(int index, int val) {
         Node start = head;
         if (index == 0) {
-            head = new Node(val);
+            addAtHead(val);
         } else {
             int i = 0;
             while (start != null) {
@@ -75,10 +76,14 @@ public class MyLinkedList {
                     if (start.next == null) {
                         addAtTail(val);
                     } else {
-                        Node node = new Node(val);
-                        Node mid = start.next;
-                        start.next = node;
-                        node.next = mid;
+                        Node current = new Node(val);
+                        Node next = start.next;
+
+                        start.next = current;
+                        current.prev = start;
+
+                        next.prev = current;
+                        current.next = next;
                     }
                     break;
                 }
@@ -96,9 +101,11 @@ public class MyLinkedList {
             head = head.next;
         else {
             int i = 0;
-            while (start.next != null) {
+            while (start.next != null && start.next.next != null) {
                 if (index == ++i) {
-                    start.next = start.next.next;
+                    Node current = start.next;
+                    start.next = current.next;
+                    current.next.prev = start;
                     break;
                 }
                 start = start.next;
@@ -118,18 +125,23 @@ public class MyLinkedList {
 
     class Node {
         int value;
-        Node next;
+        Node next, prev;
 
         Node(int value) {
             this.value = value;
-            this.next = null;
         }
 
         Node() {
 
         }
+
+        @Override
+        public String toString() {
+            return ""+value;
+        }
     }
 }
+
 
 /**
  * Your MyLinkedList object will be instantiated and called as such:
