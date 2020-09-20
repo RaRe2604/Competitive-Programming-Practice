@@ -10,7 +10,7 @@ import java.util.Set;
  * Time: 7:08 PM
  */
 
-public class IntersactionOfTwoArray {
+public class IntersectionOfTwoArray {
     public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> setA = new HashSet<>();
         Set<Integer> setB = new HashSet<>();
