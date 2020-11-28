@@ -2,3 +2,4 @@
 *.xml
 *.class
 *.kotlin_module
+src/main/java/com/Solution.java
