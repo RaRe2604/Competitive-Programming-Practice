@@ -1,6 +1,7 @@
 package com.interview.practice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -9,12 +10,12 @@ import java.util.Stack;
  * Date: 1/19/2021
  * Time: 12:39 PM
  */
-public class NearestSmallerToLeft {
-    public List<Integer> findNearestSmallerToLeft(int[] input) {
+public class NearestSmallerToRight {
+    public List<Integer> findNearestSmallerToRight(int[] input) {
         List<Integer> output = new ArrayList<>(input.length);
         Stack<Integer> stack = new Stack<>();
 
-        for (int i = 0; i < input.length; i++) {
+        for (int i = input.length - 1; i >= 0; i--) {
             if (stack.isEmpty()) {
                 output.add(-1);
             } else if (stack.peek() < input[i]) {
@@ -27,6 +28,7 @@ public class NearestSmallerToLeft {
             }
             stack.push(input[i]);
         }
+        Collections.reverse(output);
         return output;
     }
 }
